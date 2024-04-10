@@ -2,38 +2,43 @@
 <html>
 
 <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles">
+    <link rel="stylesheet" type="text/css" href="path/to/turn.min.css">
+    <script type="text/javascript" src="path/to/turn.min.js"></script>
+    <title>Justin Nguyen</title>
+    <meta name="description" content="Justin Nguyen's portfolio.">
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
 <body>
+    
     <header class="main-header">
-        <h1 class="title">LA TV Shows</h1>
+        <h1 class="title">Justin Nguyen</h1>
+        <p class="subtitle">Computational Cognitive Science B. S., Computer Science Minor @ UC Davis</p>
+        <p class="description">Hi. I'm Justin, a 3rd-year student at UC Davis pursuing a Computational Cognitive Science B.S. with a Minor in Computer Science. My passion lies at the intersection of artificial intelligence, data analysis, and web development. I'm eager to channel these interests into impactful projects.
+            <br>
+            <br>I welcome any opportunities or discussions related to these fields, so please feel free to reach out. Feel free to reach out via email at justin.nguyen0611@gmail.com! Looking forward to connecting and exploring potential opportunities!</p>
     </header>
     <div id="card-container">
-        
     </div>
-    <div class="card" style="display: none;">
+    
+    <div class="card">
         <div class="card-content">
-            <h2>TV Show Title</h2>
-            <img src="" alt="TV Show Poster">
-            <ul>
-                <li>Bullet Point 1</li>
-                <li>Bullet Point 2</li>
-                <li>Bullet Point 3</li>
-            </ul>
+            <h2 class="title">Title Placeholder</h2>
+            <img class="image" src="" alt="Image Placeholder">
+            <p class="description">Description Placeholder</p>
+            <p class="features">Features Placeholder</p>
+            <a href="#" class="project-link">View Project</a>
         </div>
-    </div>
-    <div class="footer">
-        <button onclick="quoteAlert();">
-            Get A Quote!
-        </button>
-        <button onclick="removeLastCard();">
-            Remove A Card!
-        </button>
-    </div>
+    </div>    
+
+    <footer>
+        <div>
+          <a href="https://www.linkedin.com/in/jstnguyen/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAYFBMVEUAd7X///8Ac7NGlMRGk8QAdrUAbLAAbrDZ7PXV6fPy+fw9ir/p9Pkugbo0hr3D2umz0ORUnMh3q9C72eplocoIe7dsps6dxN6lyeCDs9TL4u+WwNzg7vVTmMYhg7uy1OcLxWtDAAABaklEQVRIie3W7Y6CMBAFUBxohwIK8qEIgu//lltou7TortNu9p83MRGSIzgzlEaHwETyU51jr5wrBWsODDzCgNcLrHjkHV5JOIE/hEnCOATGEiYhMHGgLBELgdi1lxlJ1IH8uvS17CjShtiriRCekM1mlm7oBaE2sCEMhA1vBg5+kCUG9n63GmGqXJYTqmNDlhcrrAkXdPsIx3FI+4TidpPDkHNOm7ndrP6U9TH/5VZxDewPsEvaS5t0CK8h9qXKSd4tq9T3EaC73rOl2EVp/X0bcqcddzMMU7YtbFuHHShsqH+lnJwlsUIqFIW7mLZAhPuYOfaGh5nR4fBotgLVQIWik+PE+11h38NCLUGmV+Ypfw9HdQU0j/lAhfr9AKafggizXHc81/VJibA4qvKzk4HE4nzgB/4jfLU8UiA26RqxQn0wfEOhTjTPMEIdZh9EOsw9QXzpPOdvMHgTGLztDN7oBm+twzfzYfkCChobmnKthiYAAAAASUVORK5CYII=" alt="LinkedIn"></a>
+          <a href="https://github.com/jstnguyen/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAZlBMVEX///8AAAD6+vrz8/Pa2trd3d2lpaWrq6vr6+vJycmenp55eXlGRkb39/clJSVZWVmMjIxUVFSzs7M2NjZlZWW/v787OzuUlJTl5eUWFhYbGxvPz89LS0ssLCyBgYFgYGAODg5tbW33dDBNAAACIUlEQVRIib2W7XaCMAyGG0BEEBRQmKBu3v9NztI2TUs/8Jyd5RctfUia5k1h7O8tqZNPkbSrBhA2tc+u2Ih1R7Csz+O+67NNCXvWYa50Y9zKALZr/BxAs/NxeQjjtndzVYwDqFzcd5wDuKy5yxYO4GVznlNY29nkrnL6dvMBP6qWrpRL5eSJsaJ0seOXDiolYCvnumW0F877Yein5VGc/ay/ruygPjyLcbLPsMKSLJcuCrXqgCAWTOY6J2W1WvWwMwPgLSoDRJcDzswhEEOFu5j40snLQ6AODIS0Rz0R3GOq15VWpCHJGS6PfJjgcApzjPW4lLeSeatDVRkqi3oU3CE3nUYuaa2LeBvEpVwjWohpFHyopVyWJwQjHfBt2HF5obcfeMSTaw2P8T3+UI96j8ES56bLnDetJ46uMVAf+ZPRNuzsmtT0yXE1oPwBNm9xUaQOfHuRiwN4WGOfaTVAY0UOfQi863WiK+/0BAxenzW9p6UcSKzeq6yjaxo5uQirY4W8586rlrUbze6OH+eDqSDSPJKrJb+DbfhOAOR6IM2aZSuO7Ebs8t1IXjJHNFD7pn6QdyKxFa4y+uvBAg0tlCpYNp+r0ax2CxzNxC2qvNvpdIAn+3Xv+JqwmXKO2loS1B546SResHH91JGaMvZPzmNw/wxWMXD1r6Ls6gRRBJ2Pe0vg5QBl47+Eu2d2VAdqgm30YmFZhbKRYUxQRTvnP9gvtLMTQIVu4K8AAAAASUVORK5CYII=" alt="GitHub"></a>
+          <a href="ResumeJustinNguyen.pdf"><img src="data:image/png;base64,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" alt="Resume"></a>
+        </div>
+      </footer>
 </body>
 
 </html>

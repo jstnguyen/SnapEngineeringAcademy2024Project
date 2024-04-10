@@ -23,73 +23,110 @@
  * 
  */
 
+// construct Project class
+class Project {
+    constructor(title, description, features, image, link) {
+        this.title = title;
+        this.description = description;
+        this.features = features;
+        this.image = image;
+        this.link = link;
+    }
+}
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High",
-    "SnapChat"
+// array of Project objects
+const projects = [
+    new Project(
+        "Sheep Herding in C#",
+        "A sheep herding game in C# that can be played in terminal with in-game music.",
+        ["C#"],
+        "SheepHerding.png",
+        "https://github.com/jstnguyen/SheepHerdingInCSharp"
+    ),
+    new Project(
+        "Spotted.",
+        "Study space reservation app, Spotted., for HackDavis Spring 2022.",
+        ["HTML", "CSS", "Figma"],
+        "Spotted.png",
+        "https://github.com/jstnguyen/Spotted"
+    ),
+    new Project(
+        "Atari Q Learner In Python",
+        "This project uses the Q-learning algorithm and Pytorch in order beat Atari games by finding an optimal policy that converges to a maximal reward.",
+        ["AI", "Python", "PyTorch", "NumPy", "ROM"],
+        "Pong.png",
+        "https://github.com/jstnguyen/AtariQLearnerInPython"
+    ),
+    new Project(
+        "A Star Search Algorithm",
+        "A* Search Algorithm that finds the optimal path throughout a weighted terrain implemented with Python, NumPy, and Matplotlib. Includes Dijkstra's algorithm.",
+        ["AI", "Python", "NumPy", "Matplotlib"], 
+        "AStar.png",
+        "https://github.com/jstnguyen/AStarSearchAlgorithm"
+    ),
+    new Project(
+        "Child Support Data Analysis",
+        "Data analysis of child support using R, ggplot2, and dplyr.",
+        ["R", "ggplot2", "dplyr"],
+        "ChildSupport.png",
+        "https://github.com/jstnguyen/ChildSupportDataAnalysis"
+    ),
+    new Project(
+        "Diabetes Predictive Model",
+        "Our project focuses on developing a predictive model to diagnose diabetes using machine learning techniques. We aim to enhance the accuracy of diabetes diagnosis by utilizing patients' demographic information and medical history.",
+        ["AI","HTML", "CSS",  "JavaScript", "Python", "NumPy", "Pandas", "Scikit-learn", "Matplotlib", "pickle"],
+        "DiabetesHeatmap.png",
+        "https://github.com/jstnguyen/DiabetesPredictiveModel"
+    ),
+    new Project(
+        "Connect 4 AI In Python",
+        "Connect 4 AI that uses the minimax algorithm with alpha-beta pruning to play Connect 4.",
+        ["AI", "Python", "Pygame", "NumPy"],
+        "Connect4.jpg",
+        "https://github.com/jstnguyen/Connect4AIInPython"
+    ),
+    new Project(
+        "Canva",
+        "This repository contains selected Canva projects from various endeavors including jobs, internships, and more.",
+        ["Canva"],
+        "Canva.png",
+        "https://github.com/jstnguyen/Canva"
+    )
 ];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
 
-
-// This function adds cards the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
-    
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
 
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
-        if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
-        }
+    for (let i = 0; i < projects.length; i++) {
+        const project = projects[i];
 
-        const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
-        cardContainer.appendChild(nextCard); // Add new card to the container
+        const nextCard = templateCard.cloneNode(true); // copy the template card
+        editCardContent(nextCard, project.title, project.description, project.features, project.image, project.link); // Edit title and image
+        cardContainer.appendChild(nextCard); // add new card to the container
     }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, newTitle, newDescription, newFeatures, newImageURL, newLink) {
     card.style.display = "block";
 
-    const cardHeader = card.querySelector("h2");
+    const cardHeader = card.querySelector(".title");
     cardHeader.textContent = newTitle;
 
-    const cardImage = card.querySelector("img");
+    const cardDescription = card.querySelector(".description");
+    cardDescription.textContent = newDescription;
+
+    const cardFeatures = card.querySelector(".features");
+    cardFeatures.textContent = "Features: " + newFeatures.join(", ");
+
+    const cardImage = card.querySelector(".image");
     cardImage.src = newImageURL;
     cardImage.alt = newTitle + " Poster";
 
-    // You can use console.log to help you debug!
-    // View the output by right clicking on your website,
-    // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
+    const cardLink = card.querySelector(".project-link");
+    cardLink.href = newLink; 
+    cardLink.textContent = "View Project";
 }
 
-// This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-    console.log("Button Clicked!")
-    alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
-}
-
-function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
-}
